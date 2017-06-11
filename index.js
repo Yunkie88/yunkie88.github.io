@@ -1,5 +1,5 @@
 function formValidation()  
-{  
+{  window.location.href='thank you.html'
 var uid = document.registration.userid;  
 var passid = document.registration.passid;  
 var uname = document.registration.username;  
@@ -144,13 +144,13 @@ return false;
 else  
 {  
 alert('Form Succesfully Submitted');  
-window.location.reload()  
+window.location.href='thank you.html' 
 return true;  
 }  
 }  
 
 
-  $( function() {
+  $(document).ready (function(){
     $( "#datepicker" ).datepicker();
   } );
 
@@ -169,3 +169,20 @@ format=format.replace(/YYYY/,YYYY);
 format=format.replace(/YY/,YY);
 t.value=format;
 }
+
+function loadDoc () {
+  var xhttp= new XMLHttpRequest();
+    xhttp.onreadystatechange = function (){
+
+      if(this.readyState == 4 && this.status == 200)
+
+      	 {alert ("Succesful");
+     }
+    };
+var body =   '{"Name ": "","NRIC/Passport": ""}'
+ 
+    xhttp.open ("POST", "https://sheetsu.com/apis/v1.0/0b5db42186b5", true);
+    xhttp.setRequestHeader ("Content-type","application/json")
+    xhttp.send (body);
+}
+    
