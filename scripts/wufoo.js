@@ -181,9 +181,23 @@ function addEvent( obj, type, fn ) {
 
  $(document).ready(function() {
         $("#saveForm").click(function() {
-            var name = $("#name").val();
-            var email = $("#email").val();
-            var sent = '{"name":"' + name + '", "email":"' + email + '"}';
+            var position = $("#Field21").val();
+            var avdate = $("#Field31").val();
+            var fname = $("#Field1").val();
+            var lname = $("#Field2").val();
+            var ic = $("#Field19").val();
+            var address = $("#Field5").val();
+            var add2 = $("#Field6").val();
+            var city = $("#Field7").val();
+            var state = $("#Field8").val();
+            var zip = $("#Field9").val();
+            var country = $("#Field10").val();
+            var ctc = $("#Field24").val();
+            var email = $("#Field25").val();
+            var skills = $("#Field28").val();
+            var exp = $("#Field29").val();
+  			var sent = '{"Field21":"' + position + '", "Field31":"' + avdate + '", "Field1":"' + fname + '", "Field2":"' + lname + '","Field19":"' + ic + '","Field5":"' + address + '", "Field6":"' + add2 + '","Field7":"' + city + '","Field8":"' + state + '","Field9":"' + zip + '","Field10":"' + country + '","Field24":"' + ctc + '","Field25":"' + email + '","Field28":"' + skills + '", "Field29":"' + exp + '"}';
+            console.log (sent);
             $.ajax({
                 url: "https://sheetsu.com/apis/v1.0/90b6fba5cd3a",
                 type: "POST",
@@ -191,7 +205,8 @@ function addEvent( obj, type, fn ) {
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function() {
-                    alert('form sent')
+                    alert('Your application is successfully submitted. We will call you soonest as possible. Thank you.')
+                    location.reload ();
                 }
             })
         });
