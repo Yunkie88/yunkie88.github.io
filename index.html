@@ -46,10 +46,10 @@ Position Applied For
 <span id="req_21" class="req">*</span>
 </label>
 <div>
-<select id="Field21" name="Field21" class="field select large"       tabindex="1" >
+<select id="Field21" name="Field21" class="field select large"       tabindex="1" required>
 <option
 value="Sales &amp; Marketing" selected="selected">
-<span class="notranslate">Sales &amp; Marketing</span>
+<span class="notranslate">Sales &amp; Marketing Representative</span>
 </option>
 <option
 value="Admin / General Clerk" >
@@ -63,6 +63,10 @@ value="Retail Assistant" >
 value="Customer Service Representative" >
 <span class="notranslate">Customer Service Representative</span>
 </option>
+<option
+value="SME Customer Support" >
+<span class="notranslate">Corporate Customer Support</span>
+</option>
 </select>
 </div>
 </li>
@@ -72,7 +76,11 @@ Available Start Date
 <span id="req_31" class="req">*</span>
 </label>
 <div>
-<input id="Field31" name="Field31" type="text" class="field text medium" value="" maxlength="50" tabindex="2" onkeyup="validateRange(31, 'character');"       required placeholder="" />
+<input type="date" id="Field31" name="Field31"  required title="Please Choose a Date." style= "width:75%; padding: 0.44444rem;
+border-radius: 0; height: 1.5rem; border: 1px solid #cccccc;
+box-shadow: inset 0 1px 2px rgba(0,0,0,0.1); font-size: 0.77778rem; font-family: inherit;" />
+
+
 <!-- <label for="Field31">Maximum Allowed: <var id="rangeMaxMsg31">50</var> characters.&nbsp;&nbsp;&nbsp; <em class="currently">Currently Used: <var id="rangeUsedMsg31">0</var> characters.</em></label> -->
 </div>
 </li>
@@ -82,12 +90,12 @@ Full Name
 <span id="req_1" class="req">*</span>
 </label>
 <span>
-<input id="Field1" name="Field1" type="text" class="field text fn" value="" size="8" tabindex="3" placeholder=""       required />
-<label for="Field1">First</label>
+<input id="Field1" name="Field1" type="text" class="field text fn" value="" size="8" tabindex="3" placeholder="" required pattern="[a-zA-Z][a-zA-Z0-9\s]*"   title="Alphabet Letters Only"    />
+<label for="Field1">First Name</label>
 </span>
 <span>
-<input id="Field2" name="Field2" type="text" class="field text ln" value="" size="14" tabindex="4" placeholder="" required />
-<label for="Field2">Last</label>
+<input id="Field2" name="Field2" type="text" class="field text ln" value="" size="14" tabindex="4" placeholder="" required pattern="[a-zA-Z][a-zA-Z0-9\s]*" title="Alphabet Letters Only" />
+<label for="Field2">Last Name</label>
 </span>
 <p class="instruct" id="instruct1"><small>(as per NRIC)</small></p>
 </li>
@@ -97,7 +105,7 @@ NRIC/Passport No
 <span id="req_19" class="req">*</span>
 </label>
 <div>
-<input id="Field19" name="Field19" type="text" class="field text nospin medium"  value="" maxlength="12" tabindex="5" onkeyup="validateRange(19, 'digit');" placeholder="" required       />
+<input id="Field19" name="Field19" type="text" class="field text nospin medium"  value="" maxlength="12" tabindex="5" onkeyup="validateRange(19, 'digit');" placeholder="" required pattern="[0-9]{12}"  title="Sample: XXXXXXXXXXXX without '-'"    />
 <!-- <label for="Field19">Must be between <var id="rangeMinMsg19">6</var> and <var id="rangeMaxMsg19">12</var> digits.&nbsp;&nbsp;&nbsp; <em class="currently">Currently Used: <var id="rangeUsedMsg19">0</var> digits.</em></label> -->
 </div>
 </li>
@@ -124,7 +132,7 @@ Address
 <label for="Field8">State / Province / Region</label>
 </span>
 <span class="left zip">
-<input id="Field9" name="Field9" type="text" class="field text addr" value="" maxlength="15" tabindex="10"    placeholder="" required />
+<input id="Field9" name="Field9" type="text" class="field text addr" value="" maxlength="5" tabindex="10"    placeholder="" pattern="[0-9]{5}" required title="Invalid input"/>
 <label for="Field9">Postal / Zip Code</label>
 </span>
 <span class="right country">
@@ -355,7 +363,7 @@ Phone Number
 <span id="req_24" class="req">*</span>
 </label>
 <div>
-<input id="Field24" class="field text medium" name="Field24" tabindex="12" required placeholder="" type="tel" maxlength="255" value="" />
+<input id="Field24" class="field text medium" name="Field24" tabindex="12" required placeholder="" type="tel" pattern="[0-9]{10,11}$" maxlength="11" value="" title="Invalid input"/>
 </div>
 </li>
 <li id="foli25" class="notranslate      ">
@@ -364,7 +372,7 @@ Email
 <span id="req_25" class="req">*</span>
 </label>
 <div>
-<input id="Field25" name="Field25" type="email" spellcheck="false" class="field text medium" value="" maxlength="255" tabindex="13"       placeholder="" required />
+<input id="Field25" name="Field25" type="email" spellcheck="false" class="field text medium" value="" maxlength="255" tabindex="13" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Invalid Email Address"      placeholder="" required />
 </div>
 </li><li id="foli27" class="notranslate section      ">
 <section>
@@ -418,8 +426,7 @@ placeholder=""
 <p class="instruct" id="instruct29"><small>Please list down recent 5 years of job or field experience</small></p></li> <li class="buttons ">
 <div>
 
-                    <center><input id="saveForm" name="saveForm" class="btTxt submit"
-    type="submit" value="Submit"
+ <center><input id="saveForm" name="saveForm" class="btTxt submit" type="submit" value="Submit"
  /></center></div>
 </li>
 

@@ -348,7 +348,7 @@ a.powertiny b, a.powertiny em{
 
 /* - - - Responsive - - - */
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 500px) {
 	html{
 		background-color:#FFFFFF;
 	}
@@ -358,4 +358,6 @@ a.powertiny b, a.powertiny em{
 }
 
 /* - - - Custom Theme - - - */
+
+
 

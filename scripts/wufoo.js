@@ -1,5 +1,10 @@
 addEvent(window, 'load', initForm);
 
+window.onload= function(){
+var today = new Date().toISOString().split('T')[0];
+document.getElementsByName("Field31")[0].setAttribute('min', today);
+}
+
 var highlight_array = new Array();
 
 function initForm(){
@@ -102,6 +107,9 @@ function validateRange(ColumnId, RangeType) {
 	}
 }
 
+
+
+
 function handleRadioOther(id, last) {
   var label = document.getElementById(id+'_otherlabel');
   if (label) {
@@ -112,6 +120,8 @@ function handleRadioOther(id, last) {
     }
   }
 }
+
+
 
 /*--------------------------------------------------------------------------*/
 
@@ -181,7 +191,18 @@ function addEvent( obj, type, fn ) {
 
  $(document).ready(function() {
         $("#saveForm").click(function() {
-            var position = $("#Field21").val();
+        	$(":input[required]").each(function(){
+        		var myForm= $('#form2');
+        		if (myForm[0].checkValidity()){
+        			formsubmit ();
+        		}
+        	})
+            
+     });
+  });
+
+ function formsubmit (){
+ 	        var position =$("#Field21").val();
             var avdate = $("#Field31").val();
             var fname = $("#Field1").val();
             var lname = $("#Field2").val();
@@ -198,6 +219,7 @@ function addEvent( obj, type, fn ) {
             var exp = $("#Field29").val();
   			var sent = '{"Field21":"' + position + '", "Field31":"' + avdate + '", "Field1":"' + fname + '", "Field2":"' + lname + '","Field19":"' + ic + '","Field5":"' + address + '", "Field6":"' + add2 + '","Field7":"' + city + '","Field8":"' + state + '","Field9":"' + zip + '","Field10":"' + country + '","Field24":"' + ctc + '","Field25":"' + email + '","Field28":"' + skills + '", "Field29":"' + exp + '"}';
             console.log (sent);
+
             $.ajax({
                 url: "https://sheetsu.com/apis/v1.0/90b6fba5cd3a",
                 type: "POST",
@@ -208,6 +230,5 @@ function addEvent( obj, type, fn ) {
                     alert('Your application is successfully submitted. We will call you soonest as possible. Thank you.')
                     location.reload ();
                 }
-            })
-        });
-    });
+            });
+ }
